@@ -97,11 +97,14 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 {activeTab === 'overview' && (
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="w-full md:w-1/2">
-                      <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        className="w-full h-64 md:h-80 object-cover rounded-xl shadow-md"
-                      />
+                      <div className="rounded-xl shadow-md overflow-hidden bg-stone-100">
+                        <img
+                          src={project.imageUrl}
+                          alt={project.title}
+                          className="w-full h-auto max-h-[500px] object-contain"
+                          decoding="async"
+                        />
+                      </div>
                     </div>
                     <div className="w-full md:w-1/2 flex flex-col">
                       <div className="prose prose-stone mb-8">
@@ -138,14 +141,24 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 {activeTab === 'gallery' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project.gallery.map((img, idx) => (
-                      <div key={idx} className="group relative aspect-video overflow-hidden rounded-xl bg-stone-200 shadow-sm">
+                      <div 
+                        key={idx} 
+                        className="group relative aspect-video overflow-hidden rounded-xl bg-stone-100 shadow-sm border border-stone-200 cursor-zoom-in"
+                        onClick={() => window.open(img, '_blank')}
+                        title="Click để xem ảnh gốc chất lượng cao"
+                      >
                         <img
                           src={img}
                           alt={`Gallery ${idx + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
                         />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                          <span className="bg-white/90 text-stone-800 text-xs px-3 py-1 rounded-full shadow-sm backdrop-blur-sm">
+                            Xem ảnh gốc
+                          </span>
+                        </div>
                       </div>
                     ))}
                   </div>

@@ -9,7 +9,14 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>('All');
 
-  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
+  const categories = [
+    'All',
+    'Architecture BIM',
+    'Structural BIM',
+    'LGS Project',
+    'R&D / BIM Development',
+    'Marketing'
+  ];
   
   const filteredProjects = filter === 'All' 
     ? projects 
@@ -26,7 +33,7 @@ export default function App() {
             </div>
             <div>
               <h1 className="font-sans font-bold text-lg leading-none text-stone-900 tracking-tight">PHẠM VĂN BẢO</h1>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-medium">Kỹ sư / Chuyên gia BIM (Revit)</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-medium">BIM Specialist • Revit Modeling • Technical Documentation</p>
             </div>
           </div>
           
@@ -63,15 +70,15 @@ export default function App() {
               >
                 <div className="flex items-center gap-2 mb-6">
                   <span className="h-px w-8 bg-blue-600"></span>
-                  <span className="text-blue-700 text-sm font-bold tracking-widest uppercase">BIM Specialist & Designer</span>
+                  <span className="text-blue-700 text-sm font-bold tracking-widest uppercase">BIM SPECIALIST | REVIT MODELING EXPERT</span>
                 </div>
                 
                 <h1 className="text-5xl md:text-7xl font-sans font-bold text-stone-900 mb-6 leading-[1.1] tracking-tight">
-                  Phạm Văn Bảo <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-emerald-600 text-4xl md:text-6xl">BIM / Revit Expert</span>
+                  Phạm Văn Bảo
                 </h1>
                 <p className="text-lg text-stone-600 mb-8 max-w-lg leading-relaxed">
-                  Kỹ sư có kinh nghiệm dày dạn trong thiết kế kiến trúc, triển khai bản vẽ kỹ thuật và mô hình BIM. Đã tham gia nhiều dự án quy mô lớn trong và ngoài nước (Úc, Pháp), từ chung cư cao tầng, trụ sở ngân hàng đến nhà ở dân dụng.
+                  BIM Engineer chuyên triển khai và quản lý mô hình Revit từ giai đoạn concept đến bản vẽ thi công. <br className="hidden md:block" />
+                  Kinh nghiệm làm việc với dự án quốc tế, đảm bảo tiêu chuẩn kỹ thuật, độ chính xác mô hình và phối hợp hiệu quả giữa các bộ môn.
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
@@ -92,18 +99,36 @@ export default function App() {
                 transition={{ duration: 1 }}
                 className="relative z-10"
               >
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-200 bg-white">
-                   <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800" className="w-full h-auto object-cover opacity-90" alt="BIM Model" />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-800 bg-stone-950">
+                   {/* BIM Typography Graphic */}
+                   <div className="w-full aspect-[4/3] flex items-center justify-center relative overflow-hidden">
+                      {/* Grid Background */}
+                      <div className="absolute inset-0 opacity-20" 
+                           style={{ 
+                             backgroundImage: 'linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px)', 
+                             backgroundSize: '40px 40px',
+                             transform: 'perspective(1000px) rotateX(10deg) scale(1.2)'
+                           }} 
+                      />
+                      
+                      {/* Large BIM Text */}
+                      <div className="relative z-10 flex flex-col items-center">
+                        <h1 className="text-[8rem] sm:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-500 via-blue-400 to-emerald-400 tracking-tighter select-none filter drop-shadow-2xl">
+                          BIM
+                        </h1>
+                        <div className="w-full flex justify-between text-blue-500/60 font-mono text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.5em] mt-2 px-2">
+                          <span>BUILDING</span>
+                          <span>INFORMATION</span>
+                          <span>MODELING</span>
+                        </div>
+                      </div>
+                      
+                      {/* Decorative Elements */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15),transparent_70%)]" />
+                   </div>
                    
                    {/* Floating UI Elements simulating BIM Interface */}
-                   <div className="absolute top-4 left-4 bg-black/80 backdrop-blur text-white p-3 rounded-lg text-xs font-mono border border-white/10 shadow-lg">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        <span>Revit Server: Connected</span>
-                      </div>
-                      <div className="text-stone-400">Project: An Duong Vuong</div>
-                      <div className="text-stone-400">LOD: 350/400</div>
-                   </div>
+
 
                    <div className="absolute bottom-8 right-[-20px] bg-white p-4 rounded-xl shadow-xl border border-stone-100 max-w-xs animate-bounce-slow">
                       <div className="flex items-center gap-3 mb-2">
@@ -128,7 +153,7 @@ export default function App() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-stone-900 mb-4">Kỹ Năng Chuyên Môn</h2>
               <p className="text-stone-500 max-w-2xl mx-auto">
-                Sự kết hợp giữa tư duy thiết kế kiến trúc và kỹ năng công nghệ BIM tiên tiến.
+                Kết hợp tư duy kiến trúc với năng lực BIM chuyên sâu, đáp ứng tiêu chuẩn kỹ thuật và yêu cầu dự án trong và ngoài nước.
               </p>
             </div>
 
@@ -136,27 +161,27 @@ export default function App() {
               {[
                 { 
                   icon: <Layers className="w-6 h-6" />, 
-                  title: "Revit / BIM", 
-                  desc: "Kỹ năng nâng cao. Xây dựng mô hình thông tin công trình chính xác và hiệu quả.",
+                  title: "BIM / Revit Modeling", 
+                  desc: "Triển khai và quản lý mô hình BIM (LOD 200–400), đảm bảo độ chính xác, tính đồng bộ và khả năng khai thác dữ liệu phục vụ thi công.",
                   level: "Nâng cao"
                 },
                 { 
                   icon: <PenTool className="w-6 h-6" />, 
-                  title: "Triển khai bản vẽ", 
-                  desc: "Kỹ năng nâng cao. Triển khai hồ sơ kỹ thuật thi công chi tiết, đúng tiêu chuẩn.",
+                  title: "Triển khai hồ sơ kỹ thuật", 
+                  desc: "Phát triển bản vẽ kỹ thuật chi tiết từ mô hình Revit, tuân thủ tiêu chuẩn xây dựng và yêu cầu của chủ đầu tư.",
                   level: "Nâng cao"
                 },
                 { 
                   icon: <Box className="w-6 h-6" />, 
-                  title: "Thiết kế kiến trúc", 
-                  desc: "Khả năng thiết kế tốt, từ ý tưởng concept đến phát triển chi tiết.",
+                  title: "Phối hợp đa bộ môn (Coordination)", 
+                  desc: "Phối hợp Architecture – Structure – MEP, kiểm soát clash và tối ưu mô hình nhằm giảm xung đột trong quá trình thi công",
                   level: "Tốt"
                 },
                 { 
                   icon: <Monitor className="w-6 h-6" />, 
                   title: "Phần mềm", 
-                  desc: "Thành thạo bộ công cụ hỗ trợ thiết kế và đồ họa.",
-                  tools: ["Revit", "AutoCAD", "SketchUp", "Lumion", "Photoshop"]
+                  desc: "Ứng dụng hiệu quả các công cụ trong modeling, documentation và kiểm soát chất lượng mô hình.",
+                  tools: ["Revit", "AutoCAD", "Naviswork", "Enscape"]
                 }
               ].map((skill, i) => (
                 <div key={i} className="p-6 bg-stone-50 rounded-xl border border-stone-100 hover:border-blue-200 hover:shadow-lg transition-all group">

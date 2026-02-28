@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   location: string;
-  category: 'BIM Coordination' | 'Structural BIM' | 'R&D / Families' | 'Residential BIM' | 'Architecture';
+  category: 'Architecture BIM' | 'Structural BIM' | 'LGS Project' | 'R&D / BIM Development' | 'Marketing';
   description: string;
   imageUrl: string;
   details: string[];
@@ -16,9 +16,9 @@ export const projects: Project[] = [
     id: '1',
     title: 'Chung cư An Dương Vương',
     location: 'Thành phố Lào Cai',
-    category: 'Architecture',
+    category: 'Architecture BIM',
     description: 'Đồ án tốt nghiệp: Thiết kế chung cư cao tầng. Triển khai mô hình BIM tổng thể, phân tích hiệu quả năng lượng và chi tiết kết cấu.',
-    imageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/RJ4d2Gqp/image.png',
     details: [
       'Mô hình 3D tổng thể và mặt cắt kiến trúc',
       'Mặt bằng bố trí căn hộ điển hình',
@@ -27,9 +27,8 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'Ecotect', 'AutoCAD'],
     gallery: [
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800'
+      'https://i.postimg.cc/2q90bncn/image.png',
+      'https://i.postimg.cc/2qY1Qtt0/image.png'
     ],
     modelUrl: 'https://sketchfab.com/models/embed-placeholder'
   },
@@ -57,7 +56,7 @@ export const projects: Project[] = [
     id: '3',
     title: 'Gelex Trần Nguyên Hãn',
     location: '27-29 Lý Thái Tổ, Hoàn Kiếm, Hà Nội',
-    category: 'BIM Coordination',
+    category: 'Structural BIM',
     description: 'Tòa nhà văn phòng thương mại cao cấp tại trung tâm Hà Nội. Mô hình hóa kết cấu phức tạp.',
     imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000',
     details: [
@@ -95,7 +94,7 @@ export const projects: Project[] = [
     id: '5',
     title: 'Nghiên cứu Phone Booth Tự động',
     location: 'Hợp tác cùng Schiavello',
-    category: 'R&D / Families',
+    category: 'R&D / BIM Development',
     description: 'Nghiên cứu và phát triển sản phẩm Phone Booth theo hướng tự động hóa module.',
     imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000',
     details: [
@@ -115,9 +114,9 @@ export const projects: Project[] = [
     id: '6',
     title: '218 Belmore RD',
     location: 'No.218 Belmore Balwyn, Australia',
-    category: 'Residential BIM',
+    category: 'Architecture BIM',
     description: 'Biệt thự cao cấp tại Úc. Triển khai hồ sơ kiến trúc từ concept đến bản vẽ thi công.',
-    imageUrl: 'https://images.unsplash.com/photo-1600596542815-27bfef402398?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/qNKPVJLs/image.png',
     details: [
       'Phối cảnh ngoại thất và nội thất',
       'Mặt bằng mái, mặt đứng và mặt cắt',
@@ -126,17 +125,17 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'Lumion', 'Photoshop'],
     gallery: [
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&q=80&w=800'
+      'https://i.postimg.cc/87TRDwdH/image.png',
+      'https://i.postimg.cc/DWJ8KbNt/image.png'
     ]
   },
   {
     id: '7',
     title: 'ATLANTA 320 Mk20',
     location: 'Melbourne, Australia',
-    category: 'Residential BIM',
+    category: 'Architecture BIM',
     description: 'Dự án nhà ở gia đình điển hình. Tối ưu hóa quy trình triển khai hồ sơ.',
-    imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/8fr2pTGS/image.png',
     details: [
       'Mô hình 3D tổng thể',
       'Mặt bằng bố trí nội thất và sàn',
@@ -145,15 +144,15 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'AutoCAD'],
     gallery: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800'
+      'https://i.postimg.cc/8fr2pTGS/image.png',
+      'https://i.postimg.cc/KkYKsH2m/image.png'
     ]
   },
   {
     id: '8',
     title: '34051 Margot Avenue',
     location: 'Kalkallo, Australia',
-    category: 'Structural BIM',
+    category: 'LGS Project',
     description: 'Mô hình hóa hệ khung thép nhẹ (Light Gauge Steel) cho nhà ở dân dụng.',
     imageUrl: 'https://images.unsplash.com/photo-1565514020176-db7933f381f0?auto=format&fit=crop&q=80&w=1000',
     details: [
