@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '../data/projects';
 import { X, MapPin, CheckCircle2, Image as ImageIcon, Box, FileText } from 'lucide-react';
+import { getImageSrcSet, getOptimizedImageUrl, toSketchfabEmbedUrl } from '../lib/media';
 
 interface ProjectModalProps {
   project: Project;
@@ -13,6 +14,9 @@ type Tab = 'overview' | 'gallery' | '3d';
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
+  const mainImageSrcSet = getImageSrcSet(project.imageUrl, [900, 1400, 1800]);
+  const sketchfabEmbedUrl = toSketchfabEmbedUrl(project.modelUrl ?? '');
+  const hasSketchfabPlaceholder = (project.modelUrl ?? '').includes('embed-placeholder');
 
   if (!isOpen) return null;
 
@@ -99,7 +103,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                     <div className="w-full md:w-1/2">
                       <div className="rounded-xl shadow-md overflow-hidden bg-stone-100">
                         <img
-                          src={project.imageUrl}
+                          src={getOptimizedImageUrl(project.imageUrl, 1800)}
+                          srcSet={mainImageSrcSet}
+                          sizes="(min-width: 768px) 50vw, 100vw"
                           alt={project.title}
                           className="w-full h-auto max-h-[500px] object-contain"
                           decoding="async"
@@ -148,7 +154,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                         title="Click để xem ảnh gốc chất lượng cao"
                       >
                         <img
-                          src={img}
+                          src={getOptimizedImageUrl(img, 1400)}
+                          srcSet={getImageSrcSet(img, [700, 1100, 1400])}
+                          sizes="(min-width: 768px) 50vw, 100vw"
                           alt={`Gallery ${idx + 1}`}
                           className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
@@ -165,31 +173,37 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 )}
 
                 {activeTab === '3d' && (
-                  <div className="w-full h-full min-h-[400px] bg-stone-900 rounded-xl flex items-center justify-center relative overflow-hidden">
-                    {/* Simulation of a 3D Viewer */}
-                    <div className="absolute inset-0 opacity-20" 
-                         style={{ 
-                           backgroundImage: 'linear-gradient(#444 1px, transparent 1px), linear-gradient(90deg, #444 1px, transparent 1px)', 
-                           backgroundSize: '40px 40px',
-                           transform: 'perspective(500px) rotateX(60deg) translateY(-100px) scale(2)'
-                         }} 
-                    />
-                    
-                    <div className="text-center z-10">
-                      <Box className="w-16 h-16 text-blue-500 mx-auto mb-4 animate-pulse" />
-                      <h3 className="text-white font-bold text-xl mb-2">3D Model Viewer</h3>
-                      <p className="text-stone-400 text-sm mb-6">Interactive WebGL Preview</p>
-                      <button className="px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-medium transition-colors">
-                        Load Model (LOD 300)
-                      </button>
-                    </div>
-
-                    {/* Fake UI Controls */}
-                    <div className="absolute bottom-4 left-4 flex gap-2">
-                      <div className="w-8 h-8 bg-stone-800 rounded flex items-center justify-center text-white text-xs">3D</div>
-                      <div className="w-8 h-8 bg-stone-800 rounded flex items-center justify-center text-white text-xs">Top</div>
-                      <div className="w-8 h-8 bg-stone-800 rounded flex items-center justify-center text-white text-xs">Iso</div>
-                    </div>
+                  <div className="w-full h-full min-h-[480px] bg-stone-900 rounded-xl overflow-hidden border border-stone-700">
+                    {hasSketchfabPlaceholder ? (
+                      <div className="h-full min-h-[480px] flex items-center justify-center text-center p-8">
+                        <div>
+                          <Box className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                          <h3 className="text-white font-semibold text-lg mb-2">Thêm URL Sketchfab để hiển thị mô hình 3D</h3>
+                          <p className="text-stone-300 text-sm">
+                            Cập nhật `modelUrl` trong dữ liệu dự án bằng URL model thật từ Sketchfab.
+                          </p>
+                        </div>
+                      </div>
+                    ) : sketchfabEmbedUrl ? (
+                      <iframe
+                        title={`${project.title} - Sketchfab Model`}
+                        src={sketchfabEmbedUrl}
+                        className="w-full h-full min-h-[480px]"
+                        loading="lazy"
+                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <div className="h-full min-h-[480px] flex items-center justify-center text-center p-8">
+                        <div>
+                          <Box className="w-12 h-12 text-stone-400 mx-auto mb-4" />
+                          <h3 className="text-white font-semibold text-lg mb-2">Không thể tải mô hình 3D</h3>
+                          <p className="text-stone-300 text-sm">
+                            URL mô hình chưa đúng định dạng Sketchfab. Hãy dùng URL dạng `.../models/&lt;id&gt;/embed` hoặc `.../3d-models/...`.
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

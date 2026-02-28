@@ -18,7 +18,7 @@ export const projects: Project[] = [
     location: 'Thành phố Lào Cai',
     category: 'Architecture BIM',
     description: 'Đồ án tốt nghiệp: Thiết kế chung cư cao tầng. Triển khai mô hình BIM tổng thể, phân tích hiệu quả năng lượng và chi tiết kết cấu.',
-    imageUrl: 'https://i.postimg.cc/RJ4d2Gqp/image.png',
+    imageUrl: '/images/chung-cu-an-duong-vuong.png',
     details: [
       'Mô hình 3D tổng thể và mặt cắt kiến trúc',
       'Mặt bằng bố trí căn hộ điển hình',
@@ -30,7 +30,7 @@ export const projects: Project[] = [
       'https://i.postimg.cc/2q90bncn/image.png',
       'https://i.postimg.cc/2qY1Qtt0/image.png'
     ],
-    modelUrl: 'https://sketchfab.com/models/embed-placeholder'
+    modelUrl: 'https://sketchfab.com/models/e26d8ef6335b4a0c979130ecd96ddf75/embed'
   },
   {
     id: '2',
