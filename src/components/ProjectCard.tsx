@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../data/projects';
 import { ArrowUpRight } from 'lucide-react';
+import { getImageSrcSet, getOptimizedImageUrl } from '../lib/media';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,6 +11,8 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, index }) => {
+  const imageSrcSet = getImageSrcSet(project.imageUrl, [600, 900, 1200]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -21,7 +24,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, inde
     >
       <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4 bg-stone-200">
         <img
-          src={project.imageUrl}
+          src={getOptimizedImageUrl(project.imageUrl, 1200)}
+          srcSet={imageSrcSet}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
           loading="lazy"
