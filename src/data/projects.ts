@@ -165,7 +165,8 @@ export const projects: Project[] = [
     gallery: [
       'https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800'
-    ]
+    ],
+    modelUrl: 'https://sketchfab.com/models/e26d8ef6335b4a0c979130ecd96ddf75/embed'
   },
   {
     id: '9',
