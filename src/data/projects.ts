@@ -125,8 +125,8 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'Lumion', 'Photoshop'],
     gallery: [
-      'https://i.postimg.cc/87TRDwdH/image.png',
-      'https://i.postimg.cc/DWJ8KbNt/image.png'
+      '/images/218-belmore-rd-gallery-1.png',
+      '/images/218-belmore-rd-gallery-2.png'
     ]
   },
   {
@@ -144,8 +144,8 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'AutoCAD'],
     gallery: [
-      'https://i.postimg.cc/8fr2pTGS/image.png',
-      'https://i.postimg.cc/KkYKsH2m/image.png'
+      '/images/atlanta-320-mk20.png',
+      '/images/atlanta-320-mk20-gallery-2.png'
     ]
   },
   {
