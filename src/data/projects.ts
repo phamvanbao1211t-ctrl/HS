@@ -116,7 +116,7 @@ export const projects: Project[] = [
     location: 'No.218 Belmore Balwyn, Australia',
     category: 'Architecture BIM',
     description: 'Biệt thự cao cấp tại Úc. Triển khai hồ sơ kiến trúc từ concept đến bản vẽ thi công.',
-    imageUrl: 'https://i.postimg.cc/qNKPVJLs/image.png',
+    imageUrl: '/images/218-belmore-rd.png',
     details: [
       'Phối cảnh ngoại thất và nội thất',
       'Mặt bằng mái, mặt đứng và mặt cắt',
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     location: 'Melbourne, Australia',
     category: 'Architecture BIM',
     description: 'Dự án nhà ở gia đình điển hình. Tối ưu hóa quy trình triển khai hồ sơ.',
-    imageUrl: 'https://i.postimg.cc/8fr2pTGS/image.png',
+    imageUrl: '/images/atlanta-320-mk20.png',
     details: [
       'Mô hình 3D tổng thể',
       'Mặt bằng bố trí nội thất và sàn',
