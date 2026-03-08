@@ -101,7 +101,7 @@ export const projects: Project[] = [
     location: 'Hợp tác cùng Schiavello',
     category: 'R&D / BIM Development',
     description: 'Nghiên cứu và phát triển sản phẩm Phone Booth theo hướng tự động hóa module.',
-    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/fMCF9wPs/anh-bia-phone-boot.png',
     details: [
       'Thiết kế Family Revit cho các module lắp ghép',
       'Bản vẽ lắp ráp chi tiết (Assembly Drawings)',
@@ -109,12 +109,7 @@ export const projects: Project[] = [
       'Mô hình 3D trực quan hóa sản phẩm'
     ],
     software: ['Revit Family', 'Inventor'],
-    gallery: [
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800',
-      'https://ibb.co/6079FS3p'
-    ],
-    modelUrl: 'https://sketchfab.com/models/embed-placeholder'
+    gallery: ['https://i.postimg.cc/CFdvnbDk/1.png']
   },
   {
     id: '6',
@@ -161,7 +156,8 @@ export const projects: Project[] = [
     location: 'Tralee, Ireland',
     category: 'LGS Project',
     description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
-    imageUrl: 'https://images.unsplash.com/photo-1565514020176-db7933f381f0?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/xfYsdB0L/1q.png',
+    imageFit: 'contain',
     details: [
       'Mô hình 3D chi tiết hệ khung LGS',
       'Bố trí hệ giằng và liên kết',
@@ -173,5 +169,127 @@ export const projects: Project[] = [
     modelUrl: 'https://sketchfab.com/models/e26d8ef6335b4a0c979130ecd96ddf75/embed',
     hideOverview: true,
     hideGallery: true
+  },
+  {
+    id: '9',
+    title: 'CAN22018_19-10 Whitlam',
+    location: 'Tralee, Ireland',
+    category: 'LGS Project',
+    description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
+    imageUrl: 'https://i.postimg.cc/6WgfvSwq/2q.png',
+    imageFit: 'contain',
+    details: [
+      'Mô hình 3D chi tiết hệ khung LGS',
+      'Bố trí hệ giằng và liên kết',
+      'Tối ưu hóa thiết kế sản xuất',
+      'Xuất bản vẽ lắp dựng'
+    ],
+    software: ['Revit', 'Vertex BD'],
+    gallery: [],
+    modelUrl: 'https://sketchfab.com/models/760dacf4ebf64981846f043c1c7d2497/embed',
+    hideOverview: true,
+    hideGallery: true
+  },
+  {
+    id: '10',
+    title: 'CAN22016_17 Alan Avenue',
+    location: 'Tralee, Ireland',
+    category: 'LGS Project',
+    description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
+    imageUrl: 'https://i.postimg.cc/J19scWyD/3q.png',
+    imageFit: 'contain',
+    details: [
+      'Mô hình 3D chi tiết hệ khung LGS',
+      'Bố trí hệ giằng và liên kết',
+      'Tối ưu hóa thiết kế sản xuất',
+      'Xuất bản vẽ lắp dựng'
+    ],
+    software: ['Revit', 'Vertex BD'],
+    gallery: [],
+    modelUrl: 'https://sketchfab.com/models/760dacf4ebf64981846f043c1c7d2497/embed',
+    hideOverview: true,
+    hideGallery: true
+  },
+  {
+    id: '11',
+    title: 'CAN22005_12-127 Taylor',
+    location: 'Tralee, Ireland',
+    category: 'LGS Project',
+    description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
+    imageUrl: 'https://i.postimg.cc/LRvHmpHt/4q.png',
+    imageFit: 'contain',
+    details: [
+      'Mô hình 3D chi tiết hệ khung LGS',
+      'Bố trí hệ giằng và liên kết',
+      'Tối ưu hóa thiết kế sản xuất',
+      'Xuất bản vẽ lắp dựng'
+    ],
+    software: ['Revit', 'Vertex BD'],
+    gallery: [],
+    modelUrl: 'https://sketchfab.com/models/5f5492b198444b58905a89af7ab0d3a2/embed',
+    hideOverview: true,
+    hideGallery: true
+  },
+  {
+    id: '12',
+    title: 'CAN22004_13 Section 20 Whitlam',
+    location: 'Tralee, Ireland',
+    category: 'LGS Project',
+    description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
+    imageUrl: 'https://i.postimg.cc/69NsdjWL/5q.png',
+    imageFit: 'contain',
+    details: [
+      'Mô hình 3D chi tiết hệ khung LGS',
+      'Bố trí hệ giằng và liên kết',
+      'Tối ưu hóa thiết kế sản xuất',
+      'Xuất bản vẽ lắp dựng'
+    ],
+    software: ['Revit', 'Vertex BD'],
+    gallery: [],
+    modelUrl: 'https://sketchfab.com/models/c9dd3ea6d2b349138acce638a27eeb3d/embed',
+    hideOverview: true,
+    hideGallery: true
+  },
+  {
+    id: '13',
+    title: 'CAN22001_007-002 Taylor',
+    location: 'Tralee, Ireland',
+    category: 'LGS Project',
+    description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
+    imageUrl: 'https://i.postimg.cc/PTgfRMfx/6q.png',
+    imageFit: 'contain',
+    details: [
+      'Mô hình 3D chi tiết hệ khung LGS',
+      'Bố trí hệ giằng và liên kết',
+      'Tối ưu hóa thiết kế sản xuất',
+      'Xuất bản vẽ lắp dựng'
+    ],
+    software: ['Revit', 'Vertex BD'],
+    gallery: [],
+    modelUrl: 'https://sketchfab.com/models/1824081a2ac24e1ab4deed939c6b790b/embed',
+    hideOverview: true,
+    hideGallery: true
+  },
+  {
+    id: '14',
+    title: 'Nghiên cứu ứng dụng BIM trong phân tích năng lượng',
+    location: 'Trường Đại học Giao thông Vận tải',
+    category: 'R&D / BIM Development',
+    description: 'Nghiên cứu ứng dụng BIM trong phân tích năng lượng và môi trường cho công trình chung cư.',
+    imageUrl: 'https://i.postimg.cc/pRw8J8gm/d68c4256-399f-4a12-93ea-0230add589c1.png',
+    details: [
+      'Mô hình hóa kiến trúc công trình chung cư bằng phần mềm BIM (Revit)',
+      'Thiết lập mô hình khối công trình phục vụ phân tích môi trường',
+      'Phân tích quỹ đạo mặt trời và hướng chiếu nắng theo thời gian trong năm',
+      'Xây dựng mô hình kết cấu 3D của công trình để phục vụ tính toán',
+      'Thực hiện mô phỏng dòng gió (CFD) xung quanh công trình',
+      'Phân tích tốc độ và hướng gió tác động lên bề mặt công trình',
+      'Đánh giá vùng xoáy gió và vùng áp lực gió lớn quanh khối nhà'
+    ],
+    software: ['Ecotect', 'Insight Revit', 'Flow Design'],
+    gallery: [
+      'https://i.postimg.cc/CFdvnbDk/1.png',
+      'https://i.postimg.cc/08pzfB7F/2.png'
+    ]
   }
 ];
