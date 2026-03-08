@@ -18,20 +18,48 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'marketing-1',
-    title: 'Marketing Video Album',
+    title: '218 Belmore',
     location: 'Online',
     category: 'Marketing',
     description: 'Tổng hợp các video giới thiệu dự án và quy trình làm việc BIM.',
-    imageUrl: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/R4vV5Ljm/a1.png',
+    imageFit: 'contain',
     details: [
       'Video giới thiệu dự án',
       'Mô phỏng quy trình thi công 4D',
       'Diễn họa kiến trúc (Architectural Visualization)'
     ],
-    software: ['Lumion', 'Twinmotion', 'Premiere Pro'],
-    gallery: [],
+    software: ['Revit', 'Navisworks', 'Framecad', 'Enscape'],
+    gallery: [
+      'https://i.postimg.cc/pRPXbJgp/a2.png',
+      'https://i.postimg.cc/2rTjzBDh/a3.png',
+      'https://i.postimg.cc/1ytm45mc/a4.png'
+    ],
     videos: [
-      'https://www.youtube.com/embed/dQw4w9WgXcQ' // Placeholder: Replace with your actual video embed URL
+      'https://www.youtube.com/embed/k1mIgG5DNB4'
+    ]
+  },
+  {
+    id: 'marketing-2',
+    title: 'Nhà xưởng',
+    location: 'Bắc Ninh',
+    category: 'Marketing',
+    description: 'Tổng hợp các video giới thiệu dự án và quy trình làm việc BIM.',
+    imageUrl: 'https://i.postimg.cc/DvzdMGnD/nha-xuong.png',
+    imageFit: 'contain',
+    details: [
+      'Video giới thiệu dự án',
+      'Mô phỏng quy trình thi công 4D',
+      'Diễn họa kiến trúc (Architectural Visualization)'
+    ],
+    software: ['Revit', 'Navisworks', 'Enscape'],
+    gallery: [
+      'https://i.postimg.cc/5Jkwt6fR/nha-xuong-1.png',
+      'https://i.postimg.cc/fZGmxpt7/nha-xuong-2.png',
+      'https://i.postimg.cc/hcVxMsTy/nha-xuong-3.png'
+    ],
+    videos: [
+      'https://www.youtube.com/embed/Ssp4a1f5RaU'
     ]
   },
   {
@@ -101,7 +129,8 @@ export const projects: Project[] = [
     location: '54 Điện Biên Phủ, Đà Nẵng',
     category: 'Structural BIM',
     description: 'Tòa nhà văn phòng cao tầng. Triển khai hồ sơ kết cấu và thống kê khối lượng.',
-    imageUrl: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/HT7N6fBb/112.png',
+    imageFit: 'contain',
     details: [
       'Mô hình 3D kết cấu chịu lực',
       'Mặt bằng kết cấu sàn và bố trí thép',
