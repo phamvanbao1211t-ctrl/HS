@@ -139,8 +139,9 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'Excel'],
     gallery: [
-      'https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
+      'https://i.postimg.cc/xnbrZJdn/22.png',
+      'https://i.postimg.cc/L2ZdWYs6/221.png',
+      'https://i.postimg.cc/t9Q0Gq1R/2212.png'
     ]
   },
   {
