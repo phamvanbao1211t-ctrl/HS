@@ -9,7 +9,14 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>('All');
 
-  const categories = ['All', ...new Set(projects.map((project) => project.category))];
+  const categories = [
+    'All',
+    'Architecture BIM',
+    'Structural BIM',
+    'LGS Project',
+    'R&D / BIM Development',
+    'Marketing'
+  ];
   
   const filteredProjects = filter === 'All' 
     ? projects 

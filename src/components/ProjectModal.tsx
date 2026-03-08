@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '../data/projects';
 import { X, MapPin, CheckCircle2, Image as ImageIcon, Box, FileText } from 'lucide-react';
-import { getImageSrcSet, getOptimizedImageUrl, toSketchfabEmbedUrl } from '../lib/media';
 
 interface ProjectModalProps {
   project: Project;
@@ -14,9 +13,20 @@ type Tab = 'overview' | 'gallery' | '3d';
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
-  const mainImageSrcSet = getImageSrcSet(project.imageUrl, [900, 1400, 1800]);
-  const sketchfabEmbedUrl = toSketchfabEmbedUrl(project.modelUrl ?? '');
-  const hasSketchfabPlaceholder = (project.modelUrl ?? '').includes('embed-placeholder');
+
+  React.useEffect(() => {
+    if (isOpen) {
+      if (project.hideOverview) {
+        if (!project.hideGallery && project.gallery.length > 0) {
+          setActiveTab('gallery');
+        } else if (project.modelUrl) {
+          setActiveTab('3d');
+        }
+      } else {
+        setActiveTab('overview');
+      }
+    }
+  }, [isOpen, project]);
 
   if (!isOpen) return null;
 
@@ -59,28 +69,32 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
               {/* Tabs */}
               <div className="flex border-b border-stone-100 px-6">
-                <button
-                  onClick={() => setActiveTab('overview')}
-                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                    activeTab === 'overview'
-                      ? 'border-blue-600 text-blue-700'
-                      : 'border-transparent text-stone-500 hover:text-stone-700'
-                  }`}
-                >
-                  <FileText className="w-4 h-4" />
-                  Tổng quan
-                </button>
-                <button
-                  onClick={() => setActiveTab('gallery')}
-                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                    activeTab === 'gallery'
-                      ? 'border-blue-600 text-blue-700'
-                      : 'border-transparent text-stone-500 hover:text-stone-700'
-                  }`}
-                >
-                  <ImageIcon className="w-4 h-4" />
-                  Thư viện ảnh ({project.gallery.length})
-                </button>
+                {!project.hideOverview && (
+                  <button
+                    onClick={() => setActiveTab('overview')}
+                    className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                      activeTab === 'overview'
+                        ? 'border-blue-600 text-blue-700'
+                        : 'border-transparent text-stone-500 hover:text-stone-700'
+                    }`}
+                  >
+                    <FileText className="w-4 h-4" />
+                    Tổng quan
+                  </button>
+                )}
+                {!project.hideGallery && (
+                  <button
+                    onClick={() => setActiveTab('gallery')}
+                    className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                      activeTab === 'gallery'
+                        ? 'border-blue-600 text-blue-700'
+                        : 'border-transparent text-stone-500 hover:text-stone-700'
+                    }`}
+                  >
+                    <ImageIcon className="w-4 h-4" />
+                    Thư viện ảnh ({project.gallery.length})
+                  </button>
+                )}
                 {project.modelUrl && (
                   <button
                     onClick={() => setActiveTab('3d')}
@@ -103,9 +117,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                     <div className="w-full md:w-1/2">
                       <div className="rounded-xl shadow-md overflow-hidden bg-stone-100">
                         <img
-                          src={getOptimizedImageUrl(project.imageUrl, 1800)}
-                          srcSet={mainImageSrcSet}
-                          sizes="(min-width: 768px) 50vw, 100vw"
+                          src={project.imageUrl}
                           alt={project.title}
                           className="w-full h-auto max-h-[500px] object-contain"
                           decoding="async"
@@ -154,9 +166,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                         title="Click để xem ảnh gốc chất lượng cao"
                       >
                         <img
-                          src={getOptimizedImageUrl(img, 1400)}
-                          srcSet={getImageSrcSet(img, [700, 1100, 1400])}
-                          sizes="(min-width: 768px) 50vw, 100vw"
+                          src={img}
                           alt={`Gallery ${idx + 1}`}
                           className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
@@ -172,38 +182,15 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   </div>
                 )}
 
-                {activeTab === '3d' && (
-                  <div className="w-full h-full min-h-[480px] bg-stone-900 rounded-xl overflow-hidden border border-stone-700">
-                    {hasSketchfabPlaceholder ? (
-                      <div className="h-full min-h-[480px] flex items-center justify-center text-center p-8">
-                        <div>
-                          <Box className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                          <h3 className="text-white font-semibold text-lg mb-2">Thêm URL Sketchfab để hiển thị mô hình 3D</h3>
-                          <p className="text-stone-300 text-sm">
-                            Cập nhật `modelUrl` trong dữ liệu dự án bằng URL model thật từ Sketchfab.
-                          </p>
-                        </div>
-                      </div>
-                    ) : sketchfabEmbedUrl ? (
-                      <iframe
-                        title={`${project.title} - Sketchfab Model`}
-                        src={sketchfabEmbedUrl}
-                        className="w-full h-full min-h-[480px]"
-                        loading="lazy"
-                        allow="autoplay; fullscreen; xr-spatial-tracking"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <div className="h-full min-h-[480px] flex items-center justify-center text-center p-8">
-                        <div>
-                          <Box className="w-12 h-12 text-stone-400 mx-auto mb-4" />
-                          <h3 className="text-white font-semibold text-lg mb-2">Không thể tải mô hình 3D</h3>
-                          <p className="text-stone-300 text-sm">
-                            URL mô hình chưa đúng định dạng Sketchfab. Hãy dùng URL dạng `.../models/&lt;id&gt;/embed` hoặc `.../3d-models/...`.
-                          </p>
-                        </div>
-                      </div>
-                    )}
+                {activeTab === '3d' && project.modelUrl && (
+                  <div className="w-full h-[600px] bg-stone-100 rounded-xl overflow-hidden shadow-inner border border-stone-200">
+                    <iframe
+                      src={project.modelUrl}
+                      className="w-full h-full border-0"
+                      allowFullScreen
+                      title={`3D Model Viewer - ${project.title}`}
+                      loading="lazy"
+                    />
                   </div>
                 )}
               </div>

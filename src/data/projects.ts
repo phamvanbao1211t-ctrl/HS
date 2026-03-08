@@ -5,10 +5,13 @@ export interface Project {
   category: 'Architecture BIM' | 'Structural BIM' | 'LGS Project' | 'R&D / BIM Development' | 'Marketing';
   description: string;
   imageUrl: string;
+  imageFit?: 'cover' | 'contain';
   details: string[];
   software: string[];
   gallery: string[];
   modelUrl?: string;
+  hideOverview?: boolean;
+  hideGallery?: boolean;
 }
 
 export const projects: Project[] = [
@@ -18,7 +21,7 @@ export const projects: Project[] = [
     location: 'Thành phố Lào Cai',
     category: 'Architecture BIM',
     description: 'Đồ án tốt nghiệp: Thiết kế chung cư cao tầng. Triển khai mô hình BIM tổng thể, phân tích hiệu quả năng lượng và chi tiết kết cấu.',
-    imageUrl: '/images/chung-cu-an-duong-vuong.png',
+    imageUrl: 'https://i.postimg.cc/PpvJYyRn/image.png',
     details: [
       'Mô hình 3D tổng thể và mặt cắt kiến trúc',
       'Mặt bằng bố trí căn hộ điển hình',
@@ -30,7 +33,7 @@ export const projects: Project[] = [
       'https://i.postimg.cc/2q90bncn/image.png',
       'https://i.postimg.cc/2qY1Qtt0/image.png'
     ],
-    modelUrl: 'https://sketchfab.com/models/e26d8ef6335b4a0c979130ecd96ddf75/embed'
+    modelUrl: 'https://viewer.autodesk.com/id/dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YTM2MHZpZXdlci1wcm90ZWN0ZWQvdDE3NzIyNzY0MjRfM2IzZmVmOGYtYjY5OS00YWVlLWJmNjMtNTU0ZTg0OWUxM2U4LnJ2dA?sheetId=ZDc3ZDZiZWUtNDM4YS02M2ExLTZmOTYtYmU4ZThkNzI4Mzlj'
   },
   {
     id: '2',
@@ -38,7 +41,8 @@ export const projects: Project[] = [
     location: 'Paris, France',
     category: 'Structural BIM',
     description: 'Triển khai chi tiết kết cấu bê tông cốt thép cho công trình tại Pháp theo tiêu chuẩn Eurocode.',
-    imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/2qKJg783/image.png',
+    imageFit: 'contain',
     details: [
       'Bản vẽ chi tiết dầm, cột (Rebar Detailing)',
       'Mô hình hóa cốt thép 3D phức tạp',
@@ -58,7 +62,8 @@ export const projects: Project[] = [
     location: '27-29 Lý Thái Tổ, Hoàn Kiếm, Hà Nội',
     category: 'Structural BIM',
     description: 'Tòa nhà văn phòng thương mại cao cấp tại trung tâm Hà Nội. Mô hình hóa kết cấu phức tạp.',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://i.postimg.cc/QB8hjm3g/image.png',
+    imageFit: 'contain',
     details: [
       'Mô hình kết cấu 3D hệ dầm chuyển',
       'Bản vẽ mặt bằng dầm sàn tầng điển hình',
@@ -106,7 +111,8 @@ export const projects: Project[] = [
     software: ['Revit Family', 'Inventor'],
     gallery: [
       'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800'
+      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800',
+      'https://ibb.co/6079FS3p'
     ],
     modelUrl: 'https://sketchfab.com/models/embed-placeholder'
   },
@@ -116,7 +122,7 @@ export const projects: Project[] = [
     location: 'No.218 Belmore Balwyn, Australia',
     category: 'Architecture BIM',
     description: 'Biệt thự cao cấp tại Úc. Triển khai hồ sơ kiến trúc từ concept đến bản vẽ thi công.',
-    imageUrl: '/images/218-belmore-rd.png',
+    imageUrl: 'https://i.postimg.cc/qNKPVJLs/image.png',
     details: [
       'Phối cảnh ngoại thất và nội thất',
       'Mặt bằng mái, mặt đứng và mặt cắt',
@@ -125,8 +131,8 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'Lumion', 'Photoshop'],
     gallery: [
-      '/images/218-belmore-rd-gallery-1.png',
-      '/images/218-belmore-rd-gallery-2.png'
+      'https://i.postimg.cc/87TRDwdH/image.png',
+      'https://i.postimg.cc/DWJ8KbNt/image.png'
     ]
   },
   {
@@ -135,7 +141,8 @@ export const projects: Project[] = [
     location: 'Melbourne, Australia',
     category: 'Architecture BIM',
     description: 'Dự án nhà ở gia đình điển hình. Tối ưu hóa quy trình triển khai hồ sơ.',
-    imageUrl: '/images/atlanta-320-mk20.png',
+    imageUrl: 'https://i.postimg.cc/8fr2pTGS/image.png',
+    imageFit: 'contain',
     details: [
       'Mô hình 3D tổng thể',
       'Mặt bằng bố trí nội thất và sàn',
@@ -144,47 +151,27 @@ export const projects: Project[] = [
     ],
     software: ['Revit', 'AutoCAD'],
     gallery: [
-      '/images/atlanta-320-mk20.png',
-      '/images/atlanta-320-mk20-gallery-2.png'
+      'https://i.postimg.cc/8fr2pTGS/image.png',
+      'https://i.postimg.cc/KkYKsH2m/image.png'
     ]
   },
   {
     id: '8',
-    title: '34051 Margot Avenue',
-    location: 'Kalkallo, Australia',
+    title: 'CAN22012_12 Violet Terrace Tralee',
+    location: 'Tralee, Ireland',
     category: 'LGS Project',
-    description: 'Mô hình hóa hệ khung thép nhẹ (Light Gauge Steel) cho nhà ở dân dụng.',
+    description: 'Mô hình khung thép nhẹ (LGS) chi tiết cho dự án nhà ở tại Tralee.',
     imageUrl: 'https://images.unsplash.com/photo-1565514020176-db7933f381f0?auto=format&fit=crop&q=80&w=1000',
     details: [
-      'Mô hình khung thép 3D (LGS Framing)',
-      'Chi tiết vì kèo (Truss) và liên kết',
-      'Danh sách cấu kiện cắt (Framing Cut List)',
-      'Mặt đứng khung xương (Framing Elevation)'
+      'Mô hình 3D chi tiết hệ khung LGS',
+      'Bố trí hệ giằng và liên kết',
+      'Tối ưu hóa thiết kế sản xuất',
+      'Xuất bản vẽ lắp dựng'
     ],
     software: ['Revit', 'Vertex BD'],
-    gallery: [
-      'https://images.unsplash.com/photo-1534237710431-e2fc698436d0?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800'
-    ],
-    modelUrl: 'https://sketchfab.com/models/e26d8ef6335b4a0c979130ecd96ddf75/embed'
-  },
-  {
-    id: '9',
-    title: '20 Kerr Street, Fitzroy Townhouses',
-    location: 'Fitzroy, Australia',
-    category: 'Structural BIM',
-    description: 'Chi tiết kết cấu thép cho dự án Town House (Căn 8 & 9).',
-    imageUrl: 'https://images.unsplash.com/photo-1590644365607-1c5a38d0747d?auto=format&fit=crop&q=80&w=1000',
-    details: [
-      'Chi tiết liên kết thép (Steel Connections)',
-      'Mặt bằng khung dầm tầng 1',
-      'Mặt cắt chi tiết kỹ thuật (Detail Sections)',
-      'Bản vẽ Shop Drawing kết cấu thép'
-    ],
-    software: ['Revit', 'Tekla'],
-    gallery: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=800'
-    ]
+    gallery: [],
+    modelUrl: 'https://sketchfab.com/models/e26d8ef6335b4a0c979130ecd96ddf75/embed',
+    hideOverview: true,
+    hideGallery: true
   }
 ];
