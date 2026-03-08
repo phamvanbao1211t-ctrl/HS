@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '../data/projects';
-import { X, MapPin, CheckCircle2, Image as ImageIcon, Box, FileText } from 'lucide-react';
+import { X, MapPin, CheckCircle2, Image as ImageIcon, Box, FileText, Video } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project;
@@ -9,7 +9,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-type Tab = 'overview' | 'gallery' | '3d';
+type Tab = 'overview' | 'gallery' | '3d' | 'videos';
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
@@ -19,6 +19,8 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
       if (project.hideOverview) {
         if (!project.hideGallery && project.gallery.length > 0) {
           setActiveTab('gallery');
+        } else if (project.videos && project.videos.length > 0) {
+          setActiveTab('videos');
         } else if (project.modelUrl) {
           setActiveTab('3d');
         }
@@ -93,6 +95,19 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   >
                     <ImageIcon className="w-4 h-4" />
                     Thư viện ảnh ({project.gallery.length})
+                  </button>
+                )}
+                {project.videos && project.videos.length > 0 && (
+                  <button
+                    onClick={() => setActiveTab('videos')}
+                    className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                      activeTab === 'videos'
+                        ? 'border-blue-600 text-blue-700'
+                        : 'border-transparent text-stone-500 hover:text-stone-700'
+                    }`}
+                  >
+                    <Video className="w-4 h-4" />
+                    Video ({project.videos.length})
                   </button>
                 )}
                 {project.modelUrl && (
@@ -177,6 +192,23 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                             Xem ảnh gốc
                           </span>
                         </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {activeTab === 'videos' && project.videos && (
+                  <div className="grid grid-cols-1 gap-6">
+                    {project.videos.map((videoUrl, idx) => (
+                      <div key={idx} className="w-full aspect-video bg-stone-100 rounded-xl overflow-hidden shadow-inner border border-stone-200">
+                        <iframe
+                          src={videoUrl}
+                          className="w-full h-full border-0"
+                          allowFullScreen
+                          title={`Video ${idx + 1}`}
+                          loading="lazy"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        />
                       </div>
                     ))}
                   </div>

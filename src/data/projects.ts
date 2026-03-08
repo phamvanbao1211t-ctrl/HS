@@ -12,9 +12,28 @@ export interface Project {
   modelUrl?: string;
   hideOverview?: boolean;
   hideGallery?: boolean;
+  videos?: string[];
 }
 
 export const projects: Project[] = [
+  {
+    id: 'marketing-1',
+    title: 'Marketing Video Album',
+    location: 'Online',
+    category: 'Marketing',
+    description: 'Tổng hợp các video giới thiệu dự án và quy trình làm việc BIM.',
+    imageUrl: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1000',
+    details: [
+      'Video giới thiệu dự án',
+      'Mô phỏng quy trình thi công 4D',
+      'Diễn họa kiến trúc (Architectural Visualization)'
+    ],
+    software: ['Lumion', 'Twinmotion', 'Premiere Pro'],
+    gallery: [],
+    videos: [
+      'https://www.youtube.com/embed/dQw4w9WgXcQ' // Placeholder: Replace with your actual video embed URL
+    ]
+  },
   {
     id: '1',
     title: 'Chung cư An Dương Vương',
@@ -54,7 +73,7 @@ export const projects: Project[] = [
       'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800'
     ],
-    modelUrl: 'https://sketchfab.com/models/embed-placeholder'
+    modelUrl: 'https://sketchfab.com/models/ecca447e99454d27a241cba67fd84627/embed'
   },
   {
     id: '3',
