@@ -340,5 +340,26 @@ export const projects: Project[] = [
       'https://i.postimg.cc/CFdvnbDk/1.png',
       'https://i.postimg.cc/08pzfB7F/2.png'
     ]
+  },
+  {
+    id: '15',
+    title: 'CERD',
+    location: 'Changi, Singapore',
+    category: 'Structural BIM',
+    description: 'Dự án Changi East Reclamation Development (CERD) là khu phát triển hạ tầng quy mô lớn phục vụ mở rộng sân bay tại Changi Airport, bao gồm nhà ga, khu logistics và hệ thống giao thông kết nối.',
+    imageUrl: 'https://i.postimg.cc/nH9sHvXh/Whats-App-Image-2026-03-14-at-11-11-02-AM.jpg',
+    imageFit: 'contain',
+    details: [
+      'Mô hình hóa BIM tổng thể khu sân bay và hạ tầng.',
+      'Phối hợp mô hình kiến trúc – kết cấu – hạ tầng giao thông.',
+      'Mô hình hóa hệ thống thoát nước, đường nội bộ.',
+      'Kiểm tra xung đột (Clash Detection) và tối ưu bố trí công trình.',
+      'Xuất bản vẽ và dữ liệu phục vụ quản lý dự án.'
+    ],
+    software: ['Revit', 'Navisworks'],
+    gallery: [
+      'https://i.postimg.cc/k9v2XMgK/1.jpg',
+      'https://i.postimg.cc/R9LWVCZg/2.jpg'
+    ]
   }
 ];
