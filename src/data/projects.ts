@@ -356,10 +356,31 @@ export const projects: Project[] = [
       'Kiểm tra xung đột (Clash Detection) và tối ưu bố trí công trình.',
       'Xuất bản vẽ và dữ liệu phục vụ quản lý dự án.'
     ],
-    software: ['Revit', 'Navisworks'],
+    software: ['Revit'],
     gallery: [
       'https://i.postimg.cc/k9v2XMgK/1.jpg',
       'https://i.postimg.cc/R9LWVCZg/2.jpg'
+    ]
+  },
+  {
+    id: '16',
+    title: 'MWBD',
+    location: 'Changi, Singapore',
+    category: 'Structural BIM',
+    description: 'MWBD là dự án nhà kho – logistics quy mô lớn với hệ móng cọc bê tông sâu, kết cấu khung thép và mái rộng tích hợp hệ thống pin năng lượng.',
+    imageUrl: 'https://i.postimg.cc/yBcF5s7j/Chat-GPT-Image-Mar-15-2026-02-41-52-PM.png',
+    imageFit: 'contain',
+    details: [
+      'Mô hình kết cấu công trình',
+      'Bố trí hệ thống pin năng lượng mặt trời trên mái',
+      'Tạo bản vẽ kỹ thuật/bản vẽ thi công (Shop Drawing) từ mô hình BIM',
+      'Phối hợp mô hình và kiểm tra xung đột (Clash Detection)'
+    ],
+    software: ['Revit'],
+    gallery: [
+      'https://i.postimg.cc/mBS7LjzC/1.jpg',
+      'https://i.postimg.cc/bpR1ygDB/2.jpg',
+      'https://i.postimg.cc/mT2Ct9CK/3.jpg'
     ]
   }
 ];
